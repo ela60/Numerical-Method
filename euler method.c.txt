@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+// Function to calculate the derivative
+double derivative(double x, double y) {
+    // Define your derivative function here
+    // Example: return x * x + y * y;
+}
+
+// Euler's Method implementation
+void eulerMethod(double x0, double y0, double h, double xn) {
+    double x = x0;
+    double y = y0;
+
+    while (x < xn) {
+        double dy = derivative(x, y);
+        y = y + h * dy;
+        x = x + h;
+    }
+
+    printf("Approximate solution at x = %.2lf is %.4lf\n", xn, y);
+}
+
+int main() {
+    double x0, y0, h, xn;
+
+    printf("Enter the initial value of x: ");
+    scanf("%lf", &x0);
+
+    printf("Enter the initial value of y: ");
+    scanf("%lf", &y0);
+
+    printf("Enter the step size: ");
+    scanf("%lf", &h);
+
+    printf("Enter the value of x for which y is to be approximated: ");
+    scanf("%lf", &xn);
+
+    eulerMethod(x0, y0, h, xn);
+
+    return 0;
+}
